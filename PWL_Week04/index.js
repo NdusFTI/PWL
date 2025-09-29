@@ -1,3 +1,5 @@
+// #1
+
 /*
 if (BOOLEAN_EXPRESSION) {
   STATEMENT;
@@ -38,24 +40,51 @@ if (BOOLEAN_EXPRESSION) {
 
 // document.getElementById("demo").innerHTML = `Today is ${getDay()}`;
 
-const today = {
-  day: 1,
-  name: "Monday",
-};
+// #2
 
-const hariLain = {
-  day: 5,
-  name: "Friday",
-};
+// const today = {
+//   day: 1,
+//   name: "Monday",
+// };
 
-// Ternary (Single Condition)
-new Date().getDay() === today.day
-  ? console.log(`Today is ${today.name}`)
-  : console.log(`Today is not ${today.name}`);
+// const hariLain = {
+//   day: 5,
+//   name: "Friday",
+// };
 
-// Multiple Condition
-new Date().getDay() === today.day
-  ? console.log(`Today is ${today.name}`)
-  : new Date().getDay() === hariLain.day
-  ? console.log(`Today is ${hariLain.name}`)
-  : console.log(`Today is not ${today.name} and not ${hariLain.name}`);
+// // Ternary (Single Condition)
+// new Date().getDay() === today.day
+//   ? console.log(`Today is ${today.name}`)
+//   : console.log(`Today is not ${today.name}`);
+
+// // Multiple Condition
+// new Date().getDay() === today.day
+//   ? console.log(`Today is ${today.name}`)
+//   : new Date().getDay() === hariLain.day
+//   ? console.log(`Today is ${hariLain.name}`)
+//   : console.log(`Today is not ${today.name} and not ${hariLain.name}`);
+
+// #3
+
+const getDay = () => {
+  switch (new Date().getDay()) {
+    case 0:
+      return "Sunday";
+    case 1:
+      return "Monday";
+    case 2:
+      return "Tuesday";
+    case 3:
+      return "Wednesday";
+    case 4:
+      return "Thursday";
+    case 5:
+      return "Friday";
+    case 6:
+      return "Saturday";
+    default:
+      return "Invalid day";
+  }
+}
+
+console.log(`Today is ${getDay()}`);
