@@ -91,13 +91,38 @@ if (BOOLEAN_EXPRESSION) {
 
 // #4
 
-function processData(data, callback) {
-  let res = data.toUpperCase();
-  callback(res);
+// function processData(data, callback) {
+//   let res = data.toUpperCase();
+//   callback(res);
+// }
+
+// function showRes(output) {
+//   document.getElementById("demo").innerHTML = `Teks: ${output}`;
+// }
+
+// processData("Halo Dunia!", showRes);
+
+// #5
+
+function getData() {
+  return new Promise((resolve, reject) => {
+    document.getElementById("demo").innerHTML = "Loading...";
+
+    setTimeout(() => {
+      const sukses = true;
+      if (sukses) {
+        resolve("Data berhasil dikirim");
+      } else {
+        reject("Gagal mengirimkan data");
+      }
+    }, 2000);
+  });
 }
 
-function showRes(output) {
-  document.getElementById("demo").innerHTML = `Teks: ${output}`;
-}
-
-processData("Halo Dunia!", showRes);
+getData()
+  .then((res) => {
+    document.getElementById("demo").innerHTML = res;
+  })
+  .catch((err) => {
+    document.getElementById("demo").innerHTML = err;
+  });
