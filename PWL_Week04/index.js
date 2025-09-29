@@ -58,4 +58,4 @@ new Date().getDay() === today.day
   ? console.log(`Today is ${today.name}`)
   : new Date().getDay() === hariLain.day
   ? console.log(`Today is ${hariLain.name}`)
-  : console.log(`Today is not ${today.name} or ${hariLain.name}`);
+  : console.log(`Today is not ${today.name} and not ${hariLain.name}`);
