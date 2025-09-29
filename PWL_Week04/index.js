@@ -66,25 +66,38 @@ if (BOOLEAN_EXPRESSION) {
 
 // #3
 
-const getDay = () => {
-  switch (new Date().getDay()) {
-    case 0:
-      return "Sunday";
-    case 1:
-      return "Monday";
-    case 2:
-      return "Tuesday";
-    case 3:
-      return "Wednesday";
-    case 4:
-      return "Thursday";
-    case 5:
-      return "Friday";
-    case 6:
-      return "Saturday";
-    default:
-      return "Invalid day";
-  }
+// const getDay = () => {
+//   switch (new Date().getDay()) {
+//     case 0:
+//       return "Sunday";
+//     case 1:
+//       return "Monday";
+//     case 2:
+//       return "Tuesday";
+//     case 3:
+//       return "Wednesday";
+//     case 4:
+//       return "Thursday";
+//     case 5:
+//       return "Friday";
+//     case 6:
+//       return "Saturday";
+//     default:
+//       return "Invalid day";
+//   }
+// }
+
+// console.log(`Today is ${getDay()}`);
+
+// #4
+
+function processData(data, callback) {
+  let res = data.toUpperCase();
+  callback(res);
 }
 
-console.log(`Today is ${getDay()}`);
+function showRes(output) {
+  document.getElementById("demo").innerHTML = `Teks: ${output}`;
+}
+
+processData("Halo Dunia!", showRes);
