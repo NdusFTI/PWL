@@ -104,25 +104,45 @@ if (BOOLEAN_EXPRESSION) {
 
 // #5
 
-function getData() {
-  return new Promise((resolve, reject) => {
-    document.getElementById("demo").innerHTML = "Loading...";
+// function getData() {
+//   return new Promise((resolve, reject) => {
+//     document.getElementById("demo").innerHTML = "Loading...";
 
-    setTimeout(() => {
-      const sukses = true;
-      if (sukses) {
-        resolve("Data berhasil dikirim");
-      } else {
-        reject("Gagal mengirimkan data");
-      }
-    }, 2000);
-  });
+//     setTimeout(() => {
+//       const sukses = true;
+//       if (sukses) {
+//         resolve("Data berhasil dikirim");
+//       } else {
+//         reject("Gagal mengirimkan data");
+//       }
+//     }, 2000);
+//   });
+// }
+
+// getData()
+//   .then((res) => {
+//     document.getElementById("demo").innerHTML = res;
+//   })
+//   .catch((err) => {
+//     document.getElementById("demo").innerHTML = err;
+//   });
+
+// #6
+
+function nodesatu() {
+  console.log("Node 1");
 }
 
-getData()
-  .then((res) => {
-    document.getElementById("demo").innerHTML = res;
-  })
-  .catch((err) => {
-    document.getElementById("demo").innerHTML = err;
-  });
+function nodedua() {
+  setTimeout(() => {
+    console.log("Node 2");
+  }, 1000);
+}
+
+function nodetiga() {
+  console.log("Node 3");
+}
+
+nodesatu();
+nodedua();
+nodetiga();
