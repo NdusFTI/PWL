@@ -146,3 +146,79 @@ function nodetiga() {
 nodesatu();
 nodedua();
 nodetiga();
+
+// Tugas #1
+
+// function greet(name, callback) {
+//   console.log("Halo, " + name);
+//   callback();
+// }
+
+// function selamatDatang() {
+//   console.log("Selamat datang!");
+// }
+
+// greet("Ndus", selamatDatang);
+
+// Tugas #2
+
+// function steps(callback) {
+//   console.log("Step 1");
+
+//   setTimeout(() => {
+//     console.log("Step 2");
+//     if (callback) callback();
+//   }, 2000);
+// }
+
+// function step3() {
+//   console.log("Step 3");
+// }
+
+// steps(step3);
+
+// Tugas #3
+
+// function cekAngka(num) {
+//   return new Promise((resolve, reject) => {
+//     if (num % 2 === 0) {
+//       resolve("Angka genap");
+//     } else {
+//       reject("Angka ganjil");
+//     }
+//   });
+// }
+
+// cekAngka(4)
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log(error));
+
+// cekAngka(5)
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log(error));
+
+// Tugas #4
+
+// function delay(ms) {
+//   return new Promise((resolve) => setTimeout(resolve, ms));
+// }
+
+// async function getData() {
+//   try {
+//     await delay(2000);
+//     return "Data ditemukan";
+//   } catch (error) {
+//     throw new Error("Gagal mengambil data: " + error.message);
+//   }
+// }
+
+// async function main() {
+//   try {
+//     const result = await getData();
+//     console.log(result);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
+
+// main();
