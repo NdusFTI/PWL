@@ -1,0 +1,1 @@
+INI PROPIL {{ $name }}
