@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class MovieSeeder extends Seeder
 {
@@ -11,13 +12,16 @@ class MovieSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('movie')->insert([
-            'imdb_id' => 'tt123456',
-            'title' => 'Abadi Nan Jaya',
-            'genre' => 'Horror',
-            'year' => 2025,
-            'description' => 'Film zombie jadi jamu',
-            'poster' => 'zombie.jpg',
-        ]);
+        $faker = Faker::create();
+        for ($i = 1; $i <= 100; $i++) {
+            DB::table('movie')->insert([
+                'imdb_id' => $faker->randomNumber(5, true),
+                'title' => $faker->words(2, true),
+                'genre' => $faker->word(),
+                'year' => $faker->year(),
+                'description' => $faker->paragraph(),
+                'poster' => $faker->image(null, 640, 400)
+            ]);
+        }
     }
 }
