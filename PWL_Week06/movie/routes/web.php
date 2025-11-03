@@ -18,3 +18,5 @@
 Route::get("/","PageController@home");
 Route::get("/movie","PageController@movie");
 Route::get("/genre","PageController@genre");
+Route::get("/movie/form", "PageController@movieForm");
+Route::post("/movie/add-movie", "PageController@addMovie");
