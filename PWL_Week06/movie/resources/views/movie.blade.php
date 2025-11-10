@@ -17,6 +17,7 @@
             <th>Genre</th>
             <th>Year</th>
             <th>Poster</th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -33,6 +34,11 @@
                 @else
                   <img src="storage/poster/NoImage.jpg" alt="" width="80" height="80">
                 @endif
+              </td>
+              <td>
+                <a href="/movie/edit-movie/{{ $movie->id }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                <a href="/movie/delete-movie/{{ $movie->id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+              </td>
             </tr>
           @endforeach
         </tbody>

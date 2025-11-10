@@ -20,3 +20,6 @@ Route::get("/movie","PageController@movie");
 Route::get("/genre","PageController@genre");
 Route::get("/movie/form", "PageController@movieForm");
 Route::post("/movie/add-movie", "PageController@addMovie");
+Route::get("/movie/edit-movie/{id}", "PageController@editMovie");
+Route::put("/movie/save-movie/{id}", "PageController@saveMovie");
+Route::get("/movie/delete-movie/{id}", "PageController@deleteMovie");
