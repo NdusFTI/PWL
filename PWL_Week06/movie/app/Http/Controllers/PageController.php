@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Movie;
+use App\User;
 
 class PageController extends Controller
 {
@@ -43,7 +44,7 @@ class PageController extends Controller
             'poster' => $file_name,
         ]);
 
-        return redirect('/movie');
+        return redirect('/movie')->with('alert', 'Movie berhasil ditambahkan!');
     }
 
     public function editMovie($id){
@@ -72,7 +73,7 @@ class PageController extends Controller
         $movie->description = $request->description;
         $movie->save();
 
-        return redirect('/movie');
+        return redirect('/movie')->with('alert', 'Movie berhasil diupdate!');
     }
 
     public function deleteMovie($id){
@@ -84,6 +85,46 @@ class PageController extends Controller
 
         $movie->delete();
 
-        return redirect('/movie');
+        return redirect('/movie')->with('alert', 'Movie berhasil dihapus!');
+    }
+
+    public function users(){
+        $users = User::orderBy('id', 'desc')->get();
+        return view("users", ["key" => "users", "u" => $users]);
+    }
+
+    public function userForm(){
+        return view("userForm", ["key" => "userForm"]);
+    }
+
+    public function addUser(Request $request){
+        if ($request->hasFile('photo')){
+            $file_name = time() . '_' . $request->file('photo')->getClientOriginalName();
+            $path = $request->file('photo')->storeAs('photo', $file_name, 'public');
+        } else {
+            $file_name = null;
+            $path = null;
+        }
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+            'photo' => $file_name,
+        ]);
+
+        return redirect('/users')->with('alert', 'User berhasil ditambahkan!');
+    }
+
+    public function deleteUser($id){
+        $user = User::find($id);
+
+        if ($user->photo){
+            Storage::disk('public')->delete("photo/" . $user->photo);
+        }
+
+        $user->delete();
+
+        return redirect('/users')->with('alert', 'User berhasil dihapus!');
     }
 }

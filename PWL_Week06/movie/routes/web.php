@@ -23,3 +23,8 @@ Route::post("/movie/add-movie", "PageController@addMovie");
 Route::get("/movie/edit-movie/{id}", "PageController@editMovie");
 Route::put("/movie/save-movie/{id}", "PageController@saveMovie");
 Route::get("/movie/delete-movie/{id}", "PageController@deleteMovie");
+
+Route::get("/users", "PageController@users");
+Route::get("/users/form", "PageController@userForm");
+Route::post("/users/add-user", "PageController@addUser");
+Route::get("/users/delete-user/{id}", "PageController@deleteUser");

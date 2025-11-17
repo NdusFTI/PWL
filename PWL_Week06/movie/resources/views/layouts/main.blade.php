@@ -43,6 +43,7 @@
             <a class="nav-link {{ $key === "movie" ? "active" : "" }}" href="/movie" role="tab">Movie</a>
             <a class="nav-link {{ $key === "genre" ? "active" : "" }}" href="/genre" role="tab">Genre</a>
             <a class="nav-link" href="/bioskop" role="tab">Bioskop</a>
+            <a class="nav-link {{ $key === "users" ? "active" : "" }}" href="/users" role="tab">Users</a>
           </div>
         </div>
         <div class="col-md-10 border vh-100">

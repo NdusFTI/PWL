@@ -5,7 +5,7 @@
 @section('content')
   <div class="card">
     <div class="card-header">
-      <a href="/movie/form" class="btn btn-primary"><i class="bi bi-plus"></i> Movie</a>
+      <a href="/users/form" class="btn btn-primary"><i class="bi bi-plus"></i> Users</a>
     </div>
     <div class="card-body">
       <!-- POP UP -->
@@ -20,33 +20,28 @@
       <table id="example" class="display" style="width: 100%;">
         <thead>
           <tr>
-            <th>No</th>
-            <th>ImDb</th>
-            <th>Title</th>
-            <th>Genre</th>
-            <th>Year</th>
-            <th>Poster</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Photo</th>
             <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
-          @foreach ($mv as $idx => $movie)
+          @foreach ($u as $idx => $user)
             <tr>
               <td>{{ $idx + 1 }}</td>
-              <td>{{ $movie->imdb_id }}</td>
-              <td>{{ $movie->title }}</td>
-              <td>{{ $movie->genre }}</td>
-              <td>{{ $movie->year }}</td>
+              <td>{{ $user->name }}</td>
+              <td>{{ $user->email }}</td>
               <td>
-                @if($movie->poster)
-                  <img src="{{ asset('storage/poster/' . $movie->poster) }}" alt="{{ $movie->title }}" width="80" height="80">
+                @if($user->photo)
+                  <img src="{{ asset('storage/photo/' . $user->photo) }}" alt="{{ $user->photo }}" width="80" height="80">
                 @else
                   <img src="storage/poster/NoImage.jpg" alt="" width="80" height="80">
                 @endif
               </td>
               <td>
-                <a href="/movie/edit-movie/{{ $movie->id }}" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                <a href="/movie/delete-movie/{{ $movie->id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                <a href="/users/delete-user/{{ $user->id }}" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
               </td>
             </tr>
           @endforeach
