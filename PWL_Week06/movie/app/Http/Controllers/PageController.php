@@ -109,7 +109,7 @@ class PageController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
             'photo' => $file_name,
         ]);
 
