@@ -23,15 +23,19 @@
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#">
                 <div class="media">
-                  <img src="https://pbs.twimg.com/media/GnicrcVbMAA2vN9.jpg" width="50" height="50" class="align-self-center mr-3 rounded-circle">
+                  <img src="{{ 
+                    Auth::user()->photo 
+                    ? asset('storage/photo/' . Auth::user()->photo)
+                    : 'storage/poster/NoImage.jpg'
+                  }}" width="50" height="50" class="align-self-center mr-3 rounded-circle">
                   <div class="media-body">
-                    <h5 class="mt-0">Ndus</h5>
+                    <h5 class="mt-0">{{ Auth::user()->name }}</h5>
                     <small><p class="mb-0"><i class="bi bi-clock"></i > Pkl 14:30 WIB</p></small>
                   </div>
                 </div>
               </a>
-              <a class="dropdown-item" href="#"><i class="bi bi-gear"></i> Setting</a>
-              <a class="dropdown-item" href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+              <a class="dropdown-item" href="/change/password"><i class="bi bi-gear"></i> Change Password</a>
+              <a class="dropdown-item" href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
             </div>
           </div>
         </div>

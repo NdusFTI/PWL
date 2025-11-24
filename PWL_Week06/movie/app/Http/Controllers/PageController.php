@@ -127,4 +127,8 @@ class PageController extends Controller
 
         return redirect('/users')->with('alert', 'User berhasil dihapus!');
     }
+
+    public function changePasswordForm(){
+        return view("changePasswordForm", ["key" => "changePasswordForm"]);
+    }
 }

@@ -18,7 +18,26 @@ class AuthController extends Controller
         if (!Auth::attempt(['email' => $email, 'password' => $password])) {
             return redirect("/")->with("alert", "Email atau password salah");
         } else {
-            return redirect("/home")->with('alert', 'Login berhasil, Selamat datang ' . Auth::user()->name);
+            return redirect("/home")->with('alert', 'Login berhasil');
         }
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect("/")->with("alert", "Anda telah logout");
+    }
+
+    public function changePassword(Request $request){
+        $user = Auth::user();
+
+        if (!Auth::attempt(['email' => $user->email, 'password' => $request->current_password])) {
+            return redirect("/change/password")->with("alert", "Password saat ini salah");
+        }
+
+        $user->update([
+            'password' => bcrypt($request->newPassword)
+        ]);
+
+        return redirect("/home")->with("alert", "Password berhasil diubah");
     }
 }
