@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\User;
 
 class AuthController extends Controller
 {
@@ -15,11 +15,10 @@ class AuthController extends Controller
         $email = $request->input("email");
         $password = $request->input("password");
 
-        $user = User::where("email", $email)->first();
-        if($user && password_verify($password, $user->password)){
-            return redirect("/home")->with('alert', 'Login berhasil');
-        } else {
+        if (!Auth::attempt(['email' => $email, 'password' => $password])) {
             return redirect("/")->with("alert", "Email atau password salah");
+        } else {
+            return redirect("/home")->with('alert', 'Login berhasil, Selamat datang ' . Auth::user()->name);
         }
     }
 }
