@@ -30,7 +30,7 @@ class AuthController extends Controller
     public function changePassword(Request $request){
         $user = Auth::user();
 
-        if (!Auth::attempt(['email' => $user->email, 'password' => $request->current_password])) {
+        if (!Auth::attempt(['email' => $user->email, 'password' => $request->currentPassword])) {
             return redirect("/change/password")->with("alert", "Password saat ini salah");
         }
 
